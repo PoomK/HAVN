@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Heart, Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import whoofIcon from "@/assets/dog-icon.svg";
@@ -13,7 +13,7 @@ const Navbar = () => {
     { label: "Solution", href: "#solution" },
     { label: "Value", href: "#value" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Pre-order Now", href: "#preorder" },
+    { label: "Pre-order Now", href: "#preorder", isButton: true },
   ];
 
   const scrollToSection = (href: string) => {
@@ -54,19 +54,29 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isButton ? (
+                <Button
+                  key={link.href}
+                  onClick={() => scrollToSection(link.href)}
+                  className="bg-muted-foreground text-white hover:bg-muted-foreground/90"
+                >
+                  {link.label}
+                </Button>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
           </div>
 
           {/* Mobile Menu */}
@@ -95,19 +105,29 @@ const Navbar = () => {
                   <span>Whoof</span>
                 </a>
                 <div className="flex flex-col gap-4">
-                  {navLinks.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToSection(link.href);
-                      }}
-                      className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary py-2"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
+                  {navLinks.map((link) =>
+                    link.isButton ? (
+                      <Button
+                        key={link.href}
+                        onClick={() => scrollToSection(link.href)}
+                        className="bg-muted-foreground text-white hover:bg-muted-foreground/90 w-full"
+                      >
+                        {link.label}
+                      </Button>
+                    ) : (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection(link.href);
+                        }}
+                        className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary py-2"
+                      >
+                        {link.label}
+                      </a>
+                    )
+                  )}
                 </div>
               </div>
             </SheetContent>
