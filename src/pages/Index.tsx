@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Heart, Activity, Brain, Shield, TrendingUp, Users } from "lucide-react";
+import Navbar from "@/components/Navbar";
 import heroPet from "@/assets/hero-pet.jpg";
 import healthData from "@/assets/health-data.jpg";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Navbar />
+      
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background">
+      <section id="home" className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -72,7 +75,7 @@ const Index = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 md:py-32 bg-muted/30">
+      <section id="problem" className="py-20 md:py-32 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold">
@@ -119,7 +122,7 @@ const Index = () => {
       </section>
 
       {/* Solution Section */}
-      <section className="py-20 md:py-32">
+      <section id="solution" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
@@ -184,7 +187,7 @@ const Index = () => {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-primary/5 to-background">
+      <section id="value" className="py-20 md:py-32 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
             <h2 className="text-4xl md:text-5xl font-bold">
@@ -240,7 +243,7 @@ const Index = () => {
       </section>
 
       {/* Business Model */}
-      <section className="py-20 md:py-32">
+      <section id="pricing" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
             <h2 className="text-4xl md:text-5xl font-bold">
@@ -375,10 +378,10 @@ const Index = () => {
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
               <Heart className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">PetHealth Monitor</span>
+              <span className="text-xl font-bold">Whoof</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              © 2025 PetHealth Monitor. Built for venture coursework.
+              © 2025 Whoof. Built for venture coursework.
             </p>
           </div>
         </div>
