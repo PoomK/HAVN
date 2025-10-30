@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Heart, Activity, Brain, Shield, TrendingUp, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import heroPet from "@/assets/hero-pet.jpg";
+import nuggetHeroSec from "@/assets/nuggetherosec.png";
 import healthData from "@/assets/health-data.jpg";
 
 const Index = () => {
@@ -46,7 +47,7 @@ const Index = () => {
                 </div>
                 <div className="h-12 w-px bg-border" />
                 <div>
-                  <div className="text-3xl font-bold text-foreground">98%</div>
+                  <div className="text-3xl font-bold text-foreground">1000000000%</div>
                   <div className="text-sm text-muted-foreground">Accuracy</div>
                 </div>
               </div>
@@ -55,9 +56,9 @@ const Index = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 blur-3xl rounded-full" />
               <img
-                src={heroPet}
+                src={nuggetHeroSec}
                 alt="Happy dog wearing smart health collar"
-                className="relative rounded-2xl shadow-2xl w-full"
+                className="relative rounded-2xl shadow-2xl w-half-full mx-auto"
               />
             </div>
           </div>
