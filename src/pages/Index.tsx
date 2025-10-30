@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import heroPet from "@/assets/dog-hero-sec.png";
 import nuggetHeroSec from "@/assets/nuggetherosec.png";
 import healthData from "@/assets/health-data.jpg";
+import whoofAppDesign from "@/assets/whoof-app-design.png";
 
 const Index = () => {
   return (
@@ -118,7 +119,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <img
-                src={healthData}
+                src={whoofAppDesign}
                 alt="Pet health data visualization"
                 className="rounded-2xl shadow-2xl w-full"
               />
@@ -249,7 +250,7 @@ const Index = () => {
             <Card className="p-8 space-y-6 border-2">
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold">Hardware Sales</h3>
-                <div className="text-4xl font-bold text-primary">$149</div>
+                <div className="text-4xl font-bold text-primary">£69.99</div>
                 <p className="text-muted-foreground">One-time device cost</p>
               </div>
               <ul className="space-y-3">
@@ -274,7 +275,7 @@ const Index = () => {
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold">Premium Plan</h3>
-                <div className="text-4xl font-bold text-primary">$12.99<span className="text-lg text-muted-foreground">/mo</span></div>
+                <div className="text-4xl font-bold text-primary">£9.99<span className="text-lg text-muted-foreground">/mo</span></div>
                 <p className="text-muted-foreground">Full feature access</p>
               </div>
               <ul className="space-y-3">
