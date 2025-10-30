@@ -34,17 +34,7 @@ const Index = () => {
                 Monitor your pet's health, behavior, and activity in real-time with AI-powered insights. Peace of mind, one wag at a time.
               </p>
               
-              <div className="flex flex-wrap gap-4">
-                <Button variant="hero" size="xl" className="group">
-                  Get Started
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="outline" size="xl">
-                  Learn More
-                </Button>
-              </div>
-              
-              <div className="flex items-center gap-8 pt-4">
+              <div className="flex items-center gap-8 pt-8">
                 <div>
                   <div className="text-3xl font-bold text-foreground">10K+</div>
                   <div className="text-sm text-muted-foreground">Happy Pets</div>
