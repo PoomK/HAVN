@@ -357,9 +357,6 @@ const Index = () => {
                 Pre-Order Now
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="xl" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10">
-                Schedule Demo
-              </Button>
             </div>
           </div>
         </div>
