@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Heart, Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
+import whoofIcon from "@/assets/dog-icon.svg";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +43,11 @@ const Navbar = () => {
             }}
             className="flex items-center gap-2 font-bold text-xl transition-colors hover:text-primary"
           >
-            <Heart className="h-6 w-6 text-primary" />
+            <img
+              src={whoofIcon}
+              alt="Whoof logo"
+              className="h-6 w-6 text-primary"
+            />
             <span>Whoof</span>
           </a>
 

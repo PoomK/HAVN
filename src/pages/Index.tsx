@@ -67,7 +67,7 @@ const Index = () => {
       </section>
 
       {/* Problem Section */}
-      <section id="problem" className="py-20 md:py-32 bg-muted/30">
+      <section id="problem" className="py-20 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold">
@@ -114,10 +114,10 @@ const Index = () => {
       </section>
 
       {/* Solution Section */}
-      <section id="solution" className="py-20 md:py-32">
+      <section className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
+            <div id="solution" className="order-2 lg:order-1">
               <img
                 src={whoofAppDesign}
                 alt="Pet health data visualization"
@@ -235,10 +235,10 @@ const Index = () => {
       </section>
 
       {/* Business Model */}
-      <section id="pricing" className="py-20 md:py-32">
+      <section className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 id="pricing" className="text-4xl md:text-5xl font-bold">
               Our Business Model
             </h2>
             <p className="text-xl text-muted-foreground">
