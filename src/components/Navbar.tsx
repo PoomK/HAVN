@@ -13,6 +13,7 @@ const Navbar = () => {
     { label: "Solution", href: "#solution" },
     { label: "Value", href: "#value" },
     { label: "Pricing", href: "#pricing" },
+    { label: "Pre-order Now", href: "#preorder" },
   ];
 
   const scrollToSection = (href: string) => {

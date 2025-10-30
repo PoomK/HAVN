@@ -437,7 +437,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
-        <div className="container mx-auto px-4">
+        <div id="preorder" className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2 className="text-4xl md:5xl font-bold">
               Give Your Pet the Care They Deserve
