@@ -86,7 +86,11 @@ const Navbar = () => {
                   }}
                   className="flex items-center gap-2 font-bold text-xl"
                 >
-                  <Heart className="h-6 w-6 text-primary" />
+                  <img
+                    src={whoofIcon}
+                    alt="Whoof logo"
+                    className="h-6 w-6 text-primary"
+                  />
                   <span>Whoof</span>
                 </a>
                 <div className="flex flex-col gap-4">
@@ -103,9 +107,6 @@ const Navbar = () => {
                       {link.label}
                     </a>
                   ))}
-                  <Button variant="hero" size="lg" className="mt-4">
-                    Get Started
-                  </Button>
                 </div>
               </div>
             </SheetContent>

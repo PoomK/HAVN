@@ -6,6 +6,7 @@ import heroPet from "@/assets/dog-hero-sec.png";
 import nuggetHeroSec from "@/assets/nuggetherosec.png";
 import healthData from "@/assets/health-data.jpg";
 import whoofAppDesign from "@/assets/whoof-app-design.png";
+import whoofIcon from "@/assets/dog-icon.svg";
 
 const Index = () => {
   return (
@@ -115,9 +116,9 @@ const Index = () => {
 
       {/* Solution Section */}
       <section className="py-20 md:py-32">
-        <div className="container mx-auto px-4">
+        <div id="solution" className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div id="solution" className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1">
               <img
                 src={whoofAppDesign}
                 alt="Pet health data visualization"
@@ -179,7 +180,7 @@ const Index = () => {
       </section>
 
       {/* Value Proposition */}
-      <section id="value" className="py-20 md:py-32 bg-gradient-to-b from-primary/5 to-background">
+      <section id="value" className="py-20 md:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
             <h2 className="text-4xl md:text-5xl font-bold">
@@ -235,7 +236,7 @@ const Index = () => {
       </section>
 
       {/* Business Model */}
-      <section className="py-20 md:py-32">
+      <section className="py-20 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
             <h2 id="pricing" className="text-4xl md:text-5xl font-bold">
@@ -369,11 +370,15 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
-              <Heart className="h-6 w-6 text-primary" />
+              <img
+                src={whoofIcon}
+                alt="Whoof logo"
+                className="h-6 w-6 text-primary"
+              />
               <span className="text-xl font-bold">Whoof</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              © 2025 Whoof. Built for venture coursework.
+              © 2025 Whoof. Built for New Venture coursework. By Penterprise.
             </p>
           </div>
         </div>
