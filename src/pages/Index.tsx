@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Heart, Activity, Brain, Shield, TrendingUp, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import heroPet from "@/assets/hero-pet.jpg";
+import heroPet from "@/assets/dog-hero-sec.png";
 import nuggetHeroSec from "@/assets/nuggetherosec.png";
 import healthData from "@/assets/health-data.jpg";
 
@@ -24,10 +24,10 @@ const Index = () => {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                Like Whoop,
+                Health and lifestyle wearable
                 <br />
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  But for Pets
+                  for Pets
                 </span>
               </h1>
               
@@ -37,7 +37,7 @@ const Index = () => {
               
               <div className="flex items-center gap-8 pt-8">
                 <div>
-                  <div className="text-3xl font-bold text-foreground">10K+</div>
+                  <div className="text-3xl font-bold text-foreground">10k+</div>
                   <div className="text-sm text-muted-foreground">Happy Pets</div>
                 </div>
                 <div className="h-12 w-px bg-border" />
@@ -47,7 +47,7 @@ const Index = () => {
                 </div>
                 <div className="h-12 w-px bg-border" />
                 <div>
-                  <div className="text-3xl font-bold text-foreground">1000000000%</div>
+                  <div className="text-3xl font-bold text-foreground">99.9%</div>
                   <div className="text-sm text-muted-foreground">Accuracy</div>
                 </div>
               </div>
@@ -56,7 +56,7 @@ const Index = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 blur-3xl rounded-full" />
               <img
-                src={nuggetHeroSec}
+                src={heroPet}
                 alt="Happy dog wearing smart health collar"
                 className="relative rounded-2xl shadow-2xl w-half-full mx-auto"
               />
