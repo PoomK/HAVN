@@ -33,6 +33,16 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<null | "ok" | "error">(null);
+  const [currency, setCurrency] = useState<"GBP" | "THB">("GBP");
+
+  const PRICES = { GBP: { device: 69.99, sub: 4.99 }, THB: { device: 2990, sub: 199 } } as const;
+  function formatPrice(amount: number, curr: "GBP" | "THB") {
+    return new Intl.NumberFormat(curr === "GBP" ? "en-GB" : "th-TH", {
+      style: "currency",
+      currency: curr,
+      maximumFractionDigits: curr === "THB" ? 0 : 2,
+    }).format(amount);
+  }
 
   async function handlePreorderSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -86,22 +96,33 @@ const Index = () => {
               <div className="inline-block">
                 <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
                   <Activity className="h-4 w-4" />
-                  AI-Powered Pet Health
+                  AI-Powered Pet Health and Lifestyle Wearable
                 </span>
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                Health and lifestyle wearable
+                Peace of mind,
                 <br />
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  for Pets
+                  redefined for pets.
                 </span>
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-lg">
-                Monitor your pet's health, behavior, and activity in real-time
-                with AI-powered insights. Peace of mind, one wag at a time.
+              A sleek, AI-powered wearable that monitors your pet’s health, activity, and mood - giving you deeper insight and peace of mind every day.
               </p>
+
+              <div className="flex items-center gap-4 mt-8">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="group w-full sm:w-auto bg-black text-white hover:bg-gray-900"
+                  onClick={() => setPreorderOpen(true)}
+                >
+                  Pre-Order Now
+                  <ArrowRight className="h-5 w-5 ml-1 sm:ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
 
               <div className="flex items-center gap-8 pt-8">
                 <div>
@@ -134,16 +155,17 @@ const Index = () => {
       </section>
 
       {/* Problem Section */}
-      <section id="problem" className="py-20 md:py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-20 bg-muted/30">
+        <div id="problem" className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold">
               The Problem Pet Owners Face
             </h2>
             <p className="text-xl text-muted-foreground">
-              Every year, pet owners face uncertainty about their pets' health.
-              By the time symptoms appear, it's often too late for early
-              intervention.
+            Most pets show us they’re unwell only when it’s already too late.
+            </p>
+            <p className="text-xl text-muted-foreground">
+            A lack of continuous insight means small changes in stress, recovery, or rest often go unnoticed - affecting not just their health, but their happiness.
             </p>
           </div>
 
@@ -154,8 +176,14 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold">Late Detection</h3>
               <p className="text-muted-foreground">
-                Health issues often go unnoticed until they become serious,
-                leading to costly treatments and reduced quality of life.
+                Most pets hide discomfort until issues become serious. 
+              </p>
+              <p className="text-muted-foreground">
+                Without early detection, problems escalate into painful treatments and costly emergencies 
+                that could have been prevented.
+              </p>
+              <p className="text-sm text-muted-foreground/70 mt-3">
+                *Early diagnosis can reduce treatment costs by up to 40%, yet most conditions are detected only after visible symptoms appear (VetHelpDirect, 2023).*
               </p>
             </Card>
 
@@ -165,8 +193,13 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold">Limited Insights</h3>
               <p className="text-muted-foreground">
-                Without continuous monitoring, pet owners miss critical patterns
-                in behavior, activity, and vital signs.
+                Day-to-day changes in activity, stress, or rest often go unseen.
+              </p>
+              <p className="text-muted-foreground">
+                Without continuous insights, owners miss subtle patterns that reveal early fatigue, anxiety, or emerging illness.
+              </p>
+              <p className="text-sm text-muted-foreground/70 mt-3">
+                *Nearly 70% of pet owners say they’ve missed early signs of illness in their pets (AVMA, 2024).*
               </p>
             </Card>
 
@@ -176,8 +209,13 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold">Peace of Mind</h3>
               <p className="text-muted-foreground">
-                Constant worry about pet health affects quality of life for both
-                owners and their beloved companions.
+                The uncertainty of not knowing how your pet truly feels creates constant stress and worry.
+              </p>
+              <p className="text-muted-foreground">
+                It impacts both the owner’s wellbeing and the bond they share with their companion.
+              </p>
+              <p className="text-sm text-muted-foreground/70 mt-3">
+                *Over 80% of owners report anxiety when their pets show unusual behaviour, even if it later proves minor (PetWell Survey, 2024).*
               </p>
             </Card>
           </div>
@@ -185,75 +223,76 @@ const Index = () => {
       </section>
 
       {/* Solution Section */}
-      <section className="py-20 md:py-32">
-        <div id="solution" className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <img
-                src={whoofAppDesign}
-                alt="Pet health data visualization"
-                className="rounded-2xl shadow-2xl w-full"
-              />
-            </div>
+      <section className="py-20 md:py-32 bg-background">
+        <div id="solution" className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="order-2 lg:order-1">
+            <img
+              src={whoofAppDesign}
+              alt="Whoof app showing pet health insights"
+              className="rounded-2xl shadow-2xl w-full"
+            />
+          </div>
+          <div className="space-y-6 order-1 lg:order-2">
+            <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-sm font-medium text-secondary">
+              <Brain className="h-4 w-4" />
+              Our Solution
+            </span>
 
-            <div className="space-y-6 order-1 lg:order-2">
-              <div className="inline-block">
-                <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-sm font-medium text-secondary">
-                  <Brain className="h-4 w-4" />
-                  Our Solution
-                </span>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Intelligent Health Monitoring, Simplified
+            </h2>
+
+            <p className="text-xl text-muted-foreground">
+              HAVN is a lightweight, AI-powered collar that continuously monitors your pet’s wellbeing,
+              from heart rate and temperature to stress and sleep patterns. 
+              It transforms complex signals into simple, actionable insights, helping you detect health 
+              risks early and improve your pet’s daily quality of life.
+            </p>
+
+            <div className="space-y-4 pt-0">
+              <div className="flex gap-4">
+                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Heart className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">Continuous Vitals Monitoring</h4>
+                  <p className="text-muted-foreground">
+                    Tracks heart rate, temperature, and respiration in real-time, 
+                    detecting stress, fatigue, or illness before symptoms appear.
+                  </p>
+                </div>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold">
-                Intelligent Health Monitoring, Simplified
-              </h2>
-
-              <p className="text-xl text-muted-foreground">
-                Our lightweight, AI-powered collar continuously monitors your
-                pet's vital signs, activity levels, and behavior patterns to
-                detect health issues before they become serious.
-              </p>
-
-              <div className="space-y-4 pt-4">
-                <div className="flex gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Heart className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Real-Time Vitals</h4>
-                    <p className="text-muted-foreground">
-                      Heart rate, temperature, and respiratory monitoring 24/7
-                    </p>
-                  </div>
+              <div className="flex gap-4">
+                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Activity className="h-5 w-5 text-primary" />
                 </div>
-
-                <div className="flex gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Activity className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Activity Tracking</h4>
-                    <p className="text-muted-foreground">
-                      Monitor exercise, sleep quality, and daily movement
-                      patterns
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="font-semibold mb-1">Activity & Recovery Tracking</h4>
+                  <p className="text-muted-foreground">
+                    Understand your pet’s play, rest, and movement patterns to ensure a balanced, 
+                    healthy lifestyle every day.
+                  </p>
                 </div>
+              </div>
 
-                <div className="flex gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Brain className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">AI Insights</h4>
-                    <p className="text-muted-foreground">
-                      Predictive analytics identify potential health issues
-                      early
-                    </p>
-                  </div>
+              <div className="flex gap-4">
+                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Brain className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">AI-Powered Insights</h4>
+                  <p className="text-muted-foreground">
+                    Adaptive algorithms learn your pet’s normal patterns to identify anomalies, 
+                    giving you clear, personalized alerts and recommendations.
+                  </p>
                 </div>
               </div>
             </div>
+
+            <p className="text-sm text-muted-foreground/70 pt-2">
+              *Built with veterinary input and designed for everyday comfort.*
+            </p>
           </div>
         </div>
       </section>
@@ -321,65 +360,89 @@ const Index = () => {
       {/* Business Model */}
       <section className="py-20 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
+          <div className="max-w-3xl mx-auto text-center space-y-6 mb-10">
             <h2 id="pricing" className="text-4xl md:text-5xl font-bold">
               Our Business Model
             </h2>
             <p className="text-xl text-muted-foreground">
-              Sustainable growth through hardware sales and subscription
-              services.
+              Sustainable growth through hardware sales and subscription services.
             </p>
+
+            {/* Currency Toggle UNDER the subtitle */}
+            <div className="flex justify-center">
+              <div className="inline-flex items-center rounded-full border bg-muted p-1">
+                <button
+                  type="button"
+                  onClick={() => setCurrency("GBP")}
+                  className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
+                    currency === "GBP" ? "bg-background shadow font-medium" : "text-muted-foreground"
+                  }`}
+                  aria-pressed={currency === "GBP"}
+                >
+                  GBP £
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrency("THB")}
+                  className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
+                    currency === "THB" ? "bg-background shadow font-medium" : "text-muted-foreground"
+                  }`}
+                  aria-pressed={currency === "THB"}
+                >
+                  THB ฿
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Hardware Card */}
             <Card className="p-8 space-y-6 border-2">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Hardware Sales</h3>
-                <div className="text-4xl font-bold text-primary">£69.99</div>
-                <p className="text-muted-foreground">One-time device cost</p>
+                <h3 className="text-2xl font-bold">Hardware</h3>
+                <div className="text-4xl font-bold text-primary">
+                  {formatPrice(PRICES[currency].device, currency)}
+                </div>
+                <p className="text-muted-foreground">One-time device purchase</p>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Premium collar with sensors
-                  </span>
+                  <span className="text-sm">Lightweight collar tag with integrated sensors</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Water-resistant design</span>
+                  <span className="text-sm">Water-resistant, everyday wear</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">30-day battery life</span>
+                  <span className="text-sm">Up to 30-day battery life</span>
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-8 space-y-6 border-2 border-primary relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-secondary text-secondary-foreground px-3 py-1 text-xs font-semibold">
-                POPULAR
-              </div>
+            {/* Subscription Card */}
+            <Card className="p-8 space-y-6 border-2">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Premium Plan</h3>
+                <h3 className="text-2xl font-bold">Subscription Plan</h3>
                 <div className="text-4xl font-bold text-primary">
-                  £9.99
-                  <span className="text-lg text-muted-foreground">/mo</span>
+                  {formatPrice(PRICES[currency].sub, currency)}
+                  <span className="text-lg text-muted-foreground">/month</span>
                 </div>
-                <p className="text-muted-foreground">Full feature access</p>
+                <p className="text-muted-foreground">Full features & continuous insights</p>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">AI health insights</span>
+                  <span className="text-sm">Personalised AI health insights</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Unlimited data history</span>
+                  <span className="text-sm">Full history, trends & alerts</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Vet telehealth access</span>
+                  <span className="text-sm">Vet-ready health reports</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -388,46 +451,70 @@ const Index = () => {
               </ul>
             </Card>
 
-            <Card className="p-8 space-y-6 border-2">
+            {/* Enterprise Card (Future) */}
+            <Card className="p-8 space-y-6 border-2 relative">
+              <div className="absolute top-0 right-0 bg-muted text-muted-foreground px-3 py-1 text-xs font-semibold">
+                FUTURE
+              </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold">Enterprise</h3>
                 <div className="text-4xl font-bold text-primary">Custom</div>
-                <p className="text-muted-foreground">
-                  For vet clinics & shelters
-                </p>
+                <p className="text-muted-foreground">For clinics, shelters & insurers</p>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Bulk device pricing</span>
+                  <span className="text-sm">Bulk device pricing & fleet management</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">API integration</span>
+                  <span className="text-sm">API access & data export</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-sm">White-label options</span>
                 </li>
               </ul>
+              <p className="text-xs text-muted-foreground">
+                *Roadmap: expand to B2B after consumer launch and validation.*
+              </p>
             </Card>
           </div>
 
+          {/* Strategy / Revenue narrative */}
           <div className="mt-16 max-w-4xl mx-auto">
             <Card className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5">
-              <div className="flex items-start gap-6">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Users className="h-6 w-6 text-primary" />
+              <div className="flex flex-col gap-6">
+                <div className="flex items-start gap-6">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Users className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Revenue & Strategy</h3>
+                    <p className="text-muted-foreground">
+                      We start B2C with a simple purchase-and-subscribe model: affordable hardware and a
+                      monthly plan for continuous, personalised insights. This creates predictable,
+                      recurring revenue and keeps ownership costs transparent for pet parents.
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold">Revenue Streams</h3>
-                  <p className="text-muted-foreground">
-                    Our hybrid model combines upfront hardware revenue with
-                    recurring subscription income, ensuring sustainable growth
-                    while maintaining affordability for pet owners. Partnership
-                    opportunities with veterinary clinics and pet insurance
-                    companies create additional revenue channels.
-                  </p>
+
+                {/* Now vs Next */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="rounded-lg border bg-background p-4">
+                    <h4 className="font-semibold mb-1">Now: B2C Focus</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Validate product-market fit with pet owners, grow subscription base, and refine AI
+                      with real-world datasets.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border bg-background p-4">
+                    <h4 className="font-semibold mb-1">Next: B2B Expansion</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Partner with clinics, shelters, and insurers for bulk deployments, data-driven care
+                      pathways, and co-branded wellness programs.
+                    </p>
+                  </div>
                 </div>
               </div>
             </Card>
@@ -534,10 +621,10 @@ const Index = () => {
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
               <img src={whoofIcon} alt="Whoof logo" className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">Whoof</span>
+              <span className="text-xl font-bold">HAVN</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              © 2025 Whoof. Built for New Venture coursework. By Penterprise.
+              © 2025 HAVN. Built for New Venture coursework. By Penterprise.
             </p>
           </div>
         </div>

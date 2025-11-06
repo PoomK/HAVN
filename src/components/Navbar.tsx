@@ -12,7 +12,7 @@ const Navbar = () => {
     { label: "Problem", href: "#problem" },
     { label: "Solution", href: "#solution" },
     { label: "Value", href: "#value" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Business Model", href: "#pricing" },
     { label: "Pre-order now", href: "#preorder", isButton: true },
   ];
 
@@ -49,7 +49,7 @@ const Navbar = () => {
               alt="Whoof logo"
               className="h-6 w-6 text-primary"
             />
-            <span>Whoof</span>
+            <span>HAVN</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -102,7 +102,7 @@ const Navbar = () => {
                     alt="Whoof logo"
                     className="h-6 w-6 text-primary"
                   />
-                  <span>Whoof</span>
+                  <span>HAVN</span>
                 </a>
                 <div className="flex flex-col gap-4">
                   {navLinks.map((link) =>
