@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import heroPet from "@/assets/dog-hero-sec.png";
 import whoofAppDesign from "@/assets/whoof-app-design.png";
 import whoofIcon from "@/assets/dog-icon.svg";
+import havnCollar from "@/assets/havn-collar.png";
 
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
@@ -305,52 +306,59 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
             <h2 className="text-4xl md:text-5xl font-bold">
-              Why Pet Owners Choose Us
+              Our Value Proposition
             </h2>
             <p className="text-xl text-muted-foreground">
-              Advanced technology meets compassionate care for your furry family
-              members.
+              Addressing real challenges pet owners face, through intelligent, compassionate design.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <Card className="p-6 space-y-4 text-center hover:shadow-lg transition-all">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold">Preventive Care</h3>
-              <p className="text-muted-foreground text-sm">
-                Catch health issues before they become emergencies
-              </p>
-            </Card>
-
-            <Card className="p-6 space-y-4 text-center hover:shadow-lg transition-all">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <TrendingUp className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold">Cost Savings</h3>
-              <p className="text-muted-foreground text-sm">
-                Reduce emergency vet visits by up to 40%
-              </p>
-            </Card>
-
-            <Card className="p-6 space-y-4 text-center hover:shadow-lg transition-all">
+            {/* Monitor pet's health */}
+            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
               <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                 <Heart className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold">Peace of Mind</h3>
-              <p className="text-muted-foreground text-sm">
-                Know your pet is healthy, even when you're away
+              <h3 className="text-lg font-semibold text-center">Monitor Pet’s Health</h3>
+              <p className="text-sm text-muted-foreground text-center">
+                Pets can’t verbalise discomfort, so issues often go unnoticed until they become serious.
+                HAVN provides continuous, data-driven health tracking to make the invisible visible.
               </p>
             </Card>
 
-            <Card className="p-6 space-y-4 text-center hover:shadow-lg transition-all">
+            {/* Prevent illness */}
+            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                <Shield className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-center">Prevent Illness</h3>
+              <p className="text-sm text-muted-foreground text-center">
+                Vet visits usually happen only when symptoms are severe. 
+                HAVN’s AI detects anomalies early, enabling timely, preventive action.
+              </p>
+            </Card>
+
+            {/* Ensure pet happiness */}
+            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                <Activity className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-center">Ensure Pet Happiness</h3>
+              <p className="text-sm text-muted-foreground text-center">
+                It’s hard to tell if a pet is stressed or under-exercised. 
+                HAVN tracks activity, sleep, HRV, and mood indicators to provide a full picture of wellbeing.
+              </p>
+            </Card>
+
+            {/* Feel peace of mind */}
+            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
               <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                 <Brain className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold">Smart Insights</h3>
-              <p className="text-muted-foreground text-sm">
-                AI-powered recommendations from vet data
+              <h3 className="text-lg font-semibold text-center">Feel Peace of Mind</h3>
+              <p className="text-sm text-muted-foreground text-center">
+                Owners worry when they’re away from their pets. 
+                HAVN delivers real-time alerts and continuous monitoring, giving reassurance that their pet is healthy and safe.
               </p>
             </Card>
           </div>
