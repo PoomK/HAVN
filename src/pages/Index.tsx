@@ -772,7 +772,6 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
-              <img src={whoofIcon} alt="HAVN logo" className="h-6 w-6" />
               <span className="text-lg md:text-xl font-semibold tracking-tight">
                 HAVN
               </span>
