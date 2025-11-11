@@ -30,6 +30,7 @@ import whoofIcon from "@/assets/dog-icon.svg";
 import havnCollar from "@/assets/havn-collar.png";
 import dogRunning from "@/assets/dog-running-garden.png";
 import dogRunning2 from "@/assets/dog-running-garden2.png";
+import dogRunning3 from "@/assets/dog-running-garden3.png";
 import heroBg from "@/assets/hero-sec-bg.png";
 
 import cardDogVet from "@/assets/dog-vet.png";
@@ -453,7 +454,7 @@ const Index = () => {
             </p>
             <div className="mt-6 rounded-3xl overflow-hidden shadow-lg">
               <img
-                src={dogRunning2}
+                src={dogRunning3}
                 alt="Dog wearing HAVN collar showing pet health tracking"
                 className="w-full h-full object-cover"
               />
