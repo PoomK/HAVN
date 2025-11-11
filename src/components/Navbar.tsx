@@ -103,9 +103,8 @@ const Navbar = () => {
                   {/* Mobile logo */}
                   <button
                     onClick={() => scrollToSection('#home')}
-                    className="flex items-center gap-2 font-semibold text-lg tracking-tight"
+                    className="flex items-center gap-2 font-semibold text-xl tracking-tight"
                   >
-                    <img src={whoofIcon} alt="HAVN logo" className="h-6 w-6" />
                     <span>HAVN</span>
                   </button>
 
