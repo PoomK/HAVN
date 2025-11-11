@@ -492,7 +492,7 @@ const Index = () => {
               id="pricing"
               className="text-3xl md:text-4xl font-semibold tracking-tight text-white"
             >
-              The business model
+              Pricing
             </h2>
             <p className="text-sm md:text-base text-white/70">
               Simple hardware + subscription model that keeps ownership costs clear,
