@@ -185,7 +185,7 @@ const Index = () => {
       >
         <div
           id="fadeOverlay"
-          className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 opacity-0 transition-opacity duration-300 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 opacity-0 transition-opacity duration-300 pointer-events-none"
         />
 
         <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-16">
