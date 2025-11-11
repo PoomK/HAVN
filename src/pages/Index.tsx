@@ -685,7 +685,7 @@ const Index = () => {
               <Button
                 size="lg"
                 variant="default"
-                className="group w-full sm:w-auto rounded-full px-8"
+                className="rounded-full bg-black text-white hover:bg-black/80 text-[11px] font-semibold tracking-[0.16em] px-6 py-2 uppercase"
                 onClick={() => setPreorderOpen(true)}
               >
                 Pre-order now
