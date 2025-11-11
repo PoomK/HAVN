@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import whoofIcon from "@/assets/dog-icon.svg";
-import havnLogo from "@/assets/HAVN-logo.svg";
+import havnLogo from "@/assets/havn-logo.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
