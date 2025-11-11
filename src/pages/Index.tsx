@@ -44,7 +44,7 @@ import havnAppScreen from "@/assets/Havn-app.png";
 import havnCollarImg from "@/assets/HAVN-Product-des.png";
 import havnAppImg from "@/assets/Havn-app.png";
 
-import havnLogo from "@/assets/HAVN-logo.svg";
+import havnLogo from "@/assets/havn-logo.svg";
 
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
