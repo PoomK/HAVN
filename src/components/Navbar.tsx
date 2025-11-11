@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import whoofIcon from "@/assets/dog-icon.svg";
+import havnLogo from "@/assets/HAVN-logo.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,7 @@ const Navbar = () => {
               }}
               className="flex items-center gap-2 font-semibold text-xl tracking-tight"
             >
-              {/* <img src={whoofIcon} alt="HAVN logo" className="h-6 w-6" /> */}
+              <img src={havnLogo} alt="HAVN logo" className="h-6 w-6" />
               <span>HAVN</span>
             </a>
 
@@ -105,6 +106,7 @@ const Navbar = () => {
                     onClick={() => scrollToSection('#home')}
                     className="flex items-center gap-2 font-semibold text-xl tracking-tight"
                   >
+                    <img src={havnLogo} alt="HAVN logo" className="h-6 w-6" />
                     <span>HAVN</span>
                   </button>
 

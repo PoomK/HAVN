@@ -29,6 +29,7 @@ import whoofAppDesign from "@/assets/whoof-app-design.png";
 import whoofIcon from "@/assets/dog-icon.svg";
 import havnCollar from "@/assets/havn-collar.png";
 import dogRunning from "@/assets/dog-running-garden.png";
+import dogRunning2 from "@/assets/dog-running-garden2.png";
 import heroBg from "@/assets/hero-sec-bg.png";
 
 import cardDogVet from "@/assets/dog-vet.png";
@@ -42,6 +43,8 @@ import havnAppScreen from "@/assets/Havn-app.png";
 
 import havnCollarImg from "@/assets/HAVN-Product-des.png";
 import havnAppImg from "@/assets/Havn-app.png";
+
+import havnLogo from "@/assets/HAVN-logo.svg";
 
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
@@ -450,7 +453,7 @@ const Index = () => {
             </p>
             <div className="mt-6 rounded-3xl overflow-hidden shadow-lg">
               <img
-                src={dogRunning}
+                src={dogRunning2}
                 alt="Dog wearing HAVN collar showing pet health tracking"
                 className="w-full h-full object-cover"
               />
@@ -772,6 +775,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
+              <img src={havnLogo} alt="HAVN logo" className="h-6 w-6" />
               <span className="text-lg md:text-xl font-semibold tracking-tight">
                 HAVN
               </span>
