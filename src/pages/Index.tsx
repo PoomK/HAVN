@@ -9,6 +9,8 @@ import {
   Shield,
   TrendingUp,
   Users,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import {
@@ -28,6 +30,12 @@ import whoofIcon from "@/assets/dog-icon.svg";
 import havnCollar from "@/assets/havn-collar.png";
 import dogRunning from "@/assets/dog-running-garden.png";
 import heroBg from "@/assets/hero-sec-bg.png";
+
+import cardDogVet from "@/assets/dog-vet.png";
+import cardDogStress from "@/assets/card-dog-stress.png";
+import cardDogWalk from "@/assets/card-dog-walk.png";
+import cardDogPeace from "@/assets/card-dog-peace.png";
+import cardDogHealth from "@/assets/card-dog-health.png";
 
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
@@ -100,6 +108,169 @@ const Index = () => {
     }
   }
 
+  const ValueCarousel = () => {
+    const trackRef = useRef<HTMLDivElement | null>(null);
+    const [page, setPage] = useState(0);   // 0, 1, 2
+    const totalPages = 3;
+  
+    const cards = [
+      {
+        tag: "Health Insight",
+        title: "Understand your pet’s health in real-time. Turns invisible signals into clear, daily insights.",
+        body:
+          "Track vital signs like heart rate, temperature, and sleep — turning invisible signals into clear, daily insights.",
+        image: cardDogHealth,
+      },
+      {
+        tag: "Early Detection",
+        title: "Catch problems early — before they become costly or serious.",
+        body:
+          "Subtle shifts in stress, sleep, or activity patterns trigger early warnings, helping you act before symptoms worsen.",
+        image: cardDogVet,
+      },
+      {
+        tag: "Stress & Emotion",
+        title: "Understand your pet’s mood, not just their behavior.",
+        body:
+          "AI-powered behavioral tracking helps you recognize stress and emotional changes, improving comfort and wellbeing.",
+        image: cardDogStress,
+      },
+      {
+        tag: "Lifestyle Balance",
+        title: "Find the perfect balance of rest and activity",
+        body:
+          "Know when your pet needs more play, recovery, or relaxation — helping them stay active, happy, and healthy.",
+        image: cardDogWalk,
+      },
+      {
+        tag: "Peace of Mind",
+        title: "Relax — you’ll know if something’s wrong, even when you’re not there.",
+        body:
+          "Real-time alerts and continuous monitoring keep you reassured — even when you’re away from home.",
+        image: cardDogPeace,
+      },
+    ];    
+  
+    // Move by exactly one card
+    const moveByOneCard = (direction: "left" | "right") => {
+      if (!trackRef.current) return;
+  
+      const container = trackRef.current;
+      const firstCard = container.querySelector<HTMLElement>("[data-card]");
+      const cardWidth = firstCard?.offsetWidth ?? 320;
+      const gap = 24; // md:gap-6 ≈ 1.5rem = 24px
+  
+      const delta = (direction === "right" ? 1 : -1) * (cardWidth + gap);
+      const maxPage = totalPages - 1;
+  
+      setPage((current) => {
+        const next =
+          direction === "right"
+            ? Math.min(current + 1, maxPage)
+            : Math.max(current - 1, 0);
+  
+        // Only scroll if page is actually changing
+        if (next !== current) {
+          container.scrollBy({
+            left: direction === "right" ? cardWidth + gap : -(cardWidth + gap),
+            behavior: "smooth",
+          });
+        }
+  
+        return next;
+      });
+    };
+  
+    return (
+      <div className="mt-16">
+        {/* Wrapper stays within normal container margin */}
+        <div className="relative">
+          {/* Left arrow – only appears after first move */}
+          <button
+            type="button"
+            onClick={() => moveByOneCard("left")}
+            className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 h-9 w-9 items-center justify-center rounded-full bg-background/95 border border-border shadow hover:bg-muted transition-colors ${
+              page === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+  
+          {/* Right arrow – disappears when you’ve gone right twice */}
+          <button
+            type="button"
+            onClick={() => moveByOneCard("right")}
+            className={`hidden md:flex absolute right-[2vw] top-1/2 -translate-y-1/2 z-10 h-9 w-9 items-center justify-center rounded-full bg-background/95 border border-border shadow hover:bg-muted transition-colors ${
+              page === totalPages - 1
+                ? "opacity-0 pointer-events-none"
+                : "opacity-100"
+            }`}
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+  
+          {/* Track – left aligned to container, bleeds out to the RIGHT */}
+          <div
+            ref={trackRef}
+            className="
+              flex gap-4 md:gap-6 pb-6 pt-2
+              overflow-x-auto scrollbar-none
+              pr-[20vw] -mr-[20vw]
+            "
+          >
+            {cards.map((card) => (
+              <div
+                key={card.title}
+                data-card
+                className="
+                  min-w-[280px] md:min-w-[320px]
+                  max-w-[340px] md:max-w-[360px]
+                  flex-shrink-0
+                "
+              >
+                <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                  {/* Image */}
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="h-full w-full object-cover"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-transparent" />
+
+                  {/* Text overlay */}
+                  <div className="absolute inset-x-0 top-0 p-6">
+                    <h4 className="text-2xl md:text-3xl font-semibold leading-tight text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
+                      {card.tag}
+                    </h4>
+                    <p className="mt-3 text-sm md:text-base text-white/90 max-w-xs drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]">
+                      {card.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+  
+        {/* Dots */}
+        <div className="mt-6 flex justify-center gap-2">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <div
+              key={i}
+              className={`
+                h-2.5 w-2.5 rounded-full transition-all duration-200
+                ${i === page ? "bg-foreground scale-110" : "bg-muted-foreground/50"}
+              `}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  };
+  
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -153,7 +324,7 @@ const Index = () => {
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
               Daily monitoring helps detect early signs of stress, fatigue, or illness — 
-              giving owners data-backed confidence and helping pets live healthier, happier lives.*
+              giving owners data-backed confidence and helping pets live healthier, happier lives.
             </p>
             <div className="mt-6 rounded-3xl overflow-hidden shadow-lg">
               <img
@@ -168,85 +339,25 @@ const Index = () => {
           <div id="value" className="h-0" />
 
           {/* Mid: Section label */}
-          <div className="max-w-3xl mx-auto mt-12 mb-6 text-left">
-            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
+          <div className="max-w-4xl mx-auto space-y-6 pt-16">
+            <h2
+              className="
+                font-sans font-semibold tracking-tight
+                text-[clamp(2.8rem,4vw,3.6rem)]
+                leading-[1.05]
+                text-foreground
+              "
+            >
               What pet owners really want
-            </h3>
-            <p className="mt-2 text-sm md:text-base text-muted-foreground">
-              These are the jobs HAVN helps owners do every day – the reasons they buy and keep using the product.
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
+              Transform everyday care into proactive health insights — giving your pet a voice through data.
             </p>
+            <ValueCarousel />
           </div>
 
           {/* Cards: horizontally scrollable row with buttons */}
           {/* <ProblemValueCarousel /> */}
-        </div>
-      </section>
-
-      {/* Problem Section */}
-      <section className="py-20 md:py-20 bg-muted/30">
-        <div id="problem" className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold">
-              The Problem Pet Owners Face
-            </h2>
-            <p className="text-xl text-muted-foreground">
-            Most pets show us they’re unwell only when it’s already too late.
-            </p>
-            <p className="text-xl text-muted-foreground">
-            A lack of continuous insight means small changes in stress, recovery, or rest often go unnoticed - affecting not just their health, but their happiness.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
-            <Card className="p-8 space-y-4 border-2 hover:shadow-lg transition-all">
-              <div className="h-12 w-12 rounded-full bg-destructive/10 flex items-center justify-center">
-                <Heart className="h-6 w-6 text-destructive" />
-              </div>
-              <h3 className="text-xl font-semibold">Late Detection</h3>
-              <p className="text-muted-foreground">
-                Most pets hide discomfort until issues become serious. 
-              </p>
-              <p className="text-muted-foreground">
-                Without early detection, problems escalate into painful treatments and costly emergencies 
-                that could have been prevented.
-              </p>
-              <p className="text-sm text-muted-foreground/70 mt-3">
-                *Early diagnosis can reduce treatment costs by up to 40%, yet most conditions are detected only after visible symptoms appear (VetHelpDirect, 2023).*
-              </p>
-            </Card>
-
-            <Card className="p-8 space-y-4 border-2 hover:shadow-lg transition-all">
-              <div className="h-12 w-12 rounded-full bg-destructive/10 flex items-center justify-center">
-                <Activity className="h-6 w-6 text-destructive" />
-              </div>
-              <h3 className="text-xl font-semibold">Limited Insights</h3>
-              <p className="text-muted-foreground">
-                Day-to-day changes in activity, stress, or rest often go unseen.
-              </p>
-              <p className="text-muted-foreground">
-                Without continuous insights, owners miss subtle patterns that reveal early fatigue, anxiety, or emerging illness.
-              </p>
-              <p className="text-sm text-muted-foreground/70 mt-3">
-                *Nearly 70% of pet owners say they’ve missed early signs of illness in their pets (AVMA, 2024).*
-              </p>
-            </Card>
-
-            <Card className="p-8 space-y-4 border-2 hover:shadow-lg transition-all">
-              <div className="h-12 w-12 rounded-full bg-destructive/10 flex items-center justify-center">
-                <Shield className="h-6 w-6 text-destructive" />
-              </div>
-              <h3 className="text-xl font-semibold">Peace of Mind</h3>
-              <p className="text-muted-foreground">
-                The uncertainty of not knowing how your pet truly feels creates constant stress and worry.
-              </p>
-              <p className="text-muted-foreground">
-                It impacts both the owner’s wellbeing and the bond they share with their companion.
-              </p>
-              <p className="text-sm text-muted-foreground/70 mt-3">
-                *Over 80% of owners report anxiety when their pets show unusual behaviour, even if it later proves minor (PetWell Survey, 2024).*
-              </p>
-            </Card>
-          </div>
         </div>
       </section>
 
@@ -321,73 +432,6 @@ const Index = () => {
             <p className="text-sm text-muted-foreground/70 pt-2">
               *Built with veterinary input and designed for everyday comfort.*
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Value Proposition */}
-      <section
-        id="value"
-        className="py-20 md:py-20 bg-gradient-to-b from-primary/5 to-background"
-      >
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold">
-              Our Value Proposition
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Addressing real challenges pet owners face, through intelligent, compassionate design.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {/* Monitor pet's health */}
-            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Heart className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-center">Monitor Pet’s Health</h3>
-              <p className="text-sm text-muted-foreground text-center">
-                Pets can’t verbalise discomfort, so issues often go unnoticed until they become serious.
-                HAVN provides continuous, data-driven health tracking to make the invisible visible.
-              </p>
-            </Card>
-
-            {/* Prevent illness */}
-            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-center">Prevent Illness</h3>
-              <p className="text-sm text-muted-foreground text-center">
-                Vet visits usually happen only when symptoms are severe. 
-                HAVN’s AI detects anomalies early, enabling timely, preventive action.
-              </p>
-            </Card>
-
-            {/* Ensure pet happiness */}
-            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Activity className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-center">Ensure Pet Happiness</h3>
-              <p className="text-sm text-muted-foreground text-center">
-                It’s hard to tell if a pet is stressed or under-exercised. 
-                HAVN tracks activity, sleep, HRV, and mood indicators to provide a full picture of wellbeing.
-              </p>
-            </Card>
-
-            {/* Feel peace of mind */}
-            <Card className="p-6 space-y-3 hover:shadow-lg transition-all">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Brain className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-center">Feel Peace of Mind</h3>
-              <p className="text-sm text-muted-foreground text-center">
-                Owners worry when they’re away from their pets. 
-                HAVN delivers real-time alerts and continuous monitoring, giving reassurance that their pet is healthy and safe.
-              </p>
-            </Card>
           </div>
         </div>
       </section>
