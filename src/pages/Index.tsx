@@ -125,7 +125,7 @@ const Index = () => {
         title: "Understand your pet’s health in real-time. Turns invisible signals into clear, daily insights.",
         body:
           "Track vital signs like heart rate, temperature, and sleep — turning invisible signals into clear, daily insights.",
-        image: cardDogHealth,
+        image: cardDogStress,
       },
       {
         tag: "Early Detection",
@@ -139,7 +139,7 @@ const Index = () => {
         title: "Understand your pet’s mood, not just their behavior.",
         body:
           "AI-powered behavioral tracking helps you recognize stress and emotional changes, improving comfort and wellbeing.",
-        image: cardDogStress,
+        image: cardDogHealth,
       },
       {
         tag: "Lifestyle Balance",
