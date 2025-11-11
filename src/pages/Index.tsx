@@ -38,6 +38,7 @@ import cardDogPeace from "@/assets/card-dog-peace.png";
 import cardDogHealth from "@/assets/card-dog-health.png";
 
 import solHavnProd from "@/assets/HAVN-Product-guide.png";
+import havnAppScreen from "@/assets/Havn-app.png";
 
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
@@ -390,77 +391,91 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-20 md:py-32 bg-background">
-        <div id="solution" className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <img
-              src={whoofAppDesign}
-              alt="Whoof app showing pet health insights"
-              className="rounded-2xl shadow-2xl w-full"
-            />
-          </div>
-          <div className="space-y-6 order-1 lg:order-2">
-            <span className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-sm font-medium text-secondary">
-              <Brain className="h-4 w-4" />
-              Our Solution
-            </span>
+      {/* Solution – App Section */}
+      <section className="py-20 md:py-24 bg-background">
+        <div id="solution" className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: App Image */}
+            <div className="flex justify-center lg:justify-start">
+              <img
+                src={havnAppScreen} // <-- use your app image import here
+                alt="HAVN app showing pet health insights"
+                className="w-[75%] max-w-xs md:max-w-sm rounded-[28px] shadow-xl border border-black/5"
+              />
+            </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold">
-              Intelligent Health Monitoring, Simplified
-            </h2>
+            {/* Right: Copy */}
+            <div className="space-y-6">
+              <span className="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-1.5 text-xs font-semibold tracking-[0.16em] uppercase text-muted-foreground">
+                The HAVN App
+              </span>
 
-            <p className="text-xl text-muted-foreground">
-              HAVN is a lightweight, AI-powered collar that continuously monitors your pet’s wellbeing,
-              from heart rate and temperature to stress and sleep patterns. 
-              It transforms complex signals into simple, actionable insights, helping you detect health 
-              risks early and improve your pet’s daily quality of life.
-            </p>
+              <h2
+                className="
+                  font-sans font-semibold tracking-tight
+                  text-[clamp(2.4rem,4vw,3.2rem)]
+                  leading-[1.05]
+                  text-foreground
+                "
+              >
+                Your pet’s health,<br /> at a glance.
+              </h2>
 
-            <div className="space-y-4 pt-0">
-              <div className="flex gap-4">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Heart className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Continuous Vitals Monitoring</h4>
-                  <p className="text-muted-foreground">
-                    Tracks heart rate, temperature, and respiration in real-time, 
-                    detecting stress, fatigue, or illness before symptoms appear.
-                  </p>
-                </div>
-              </div>
+              <p className="text-base md:text-lg text-muted-foreground max-w-md">
+                The HAVN collar streams data into a simple app, turning raw signals into clear,
+                everyday guidance — so you always know how your pet is doing and what they need next.
+              </p>
 
-              <div className="flex gap-4">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Activity className="h-5 w-5 text-primary" />
+              <div className="space-y-4 pt-2">
+                {/* Continuous Vitals Monitoring */}
+                <div className="flex gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Heart className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 text-base md:text-lg">
+                      Continuous Vitals Monitoring
+                    </h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      Tracks heart rate, temperature, and respiration in real time to
+                      flag stress, fatigue, or illness before symptoms appear.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Activity & Recovery Tracking</h4>
-                  <p className="text-muted-foreground">
-                    Understand your pet’s play, rest, and movement patterns to ensure a balanced, 
-                    healthy lifestyle every day.
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex gap-4">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Brain className="h-5 w-5 text-primary" />
+                {/* Activity & Recovery Tracking */}
+                <div className="flex gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Activity className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 text-base md:text-lg">
+                      Activity &amp; Recovery Tracking
+                    </h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      Understand your pet’s play, rest, and movement patterns to keep
+                      their routine balanced and healthy.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-1">AI-Powered Insights</h4>
-                  <p className="text-muted-foreground">
-                    Adaptive algorithms learn your pet’s normal patterns to identify anomalies, 
-                    giving you clear, personalized alerts and recommendations.
-                  </p>
+
+                {/* AI-Powered Insights */}
+                <div className="flex gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Brain className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 text-base md:text-lg">
+                      AI-Powered Insights
+                    </h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      Adaptive models learn your pet’s normal patterns to spot
+                      anomalies, sending clear, personalised alerts and recommendations.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <p className="text-sm text-muted-foreground/70 pt-2">
-              *Built with veterinary input and designed for everyday comfort.*
-            </p>
           </div>
         </div>
       </section>
