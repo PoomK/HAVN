@@ -370,7 +370,7 @@ const Index = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Designed for comfort. <span className="text-white/60">Built for care.</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-10">
+          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-2">
             HAVN combines sleek design with medical-grade technology to keep your dog safe, healthy, and connected.
           </p>
 
@@ -384,7 +384,7 @@ const Index = () => {
           </div>
 
           {/* Tagline */}
-          <p className="text-sm text-white/50 mt-6">
+          <p className="text-sm text-white/50 mt-0">
             *Engineered for every adventure — light, durable, and ready for life with your dog.*
           </p>
         </div>
