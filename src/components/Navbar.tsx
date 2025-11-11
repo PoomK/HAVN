@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "Problem", href: "#problem" },
+    { label: "Why Havn", href: "#problem" },
     { label: "Solution", href: "#solution" },
     { label: "Value", href: "#value" },
     { label: "Business Model", href: "#pricing" },
@@ -20,7 +20,7 @@ const Navbar = () => {
     setIsOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // Account for fixed navbar height
+      const offset = 80; // account for header height
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -32,109 +32,115 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("#home");
-            }}
-            className="flex items-center gap-2 font-bold text-xl transition-colors hover:text-primary"
-          >
-            <img
-              src={whoofIcon}
-              alt="Whoof logo"
-              className="h-6 w-6 text-primary"
-            />
-            <span>HAVN</span>
-          </a>
+    <header className="sticky top-0 z-50 w-full">
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) =>
-              link.isButton ? (
-                <Button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="bg-muted-foreground text-white hover:bg-muted-foreground/90"
-                >
-                  {link.label}
-                </Button>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(link.href);
-                  }}
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                >
-                  {link.label}
-                </a>
-              )
-            )}
-          </div>
+      {/* Main nav bar */}
+      <nav className="w-full bg-black text-white">
+        <div className="container mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo */}
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("#home");
+              }}
+              className="flex items-center gap-2 font-semibold text-lg tracking-tight"
+            >
+              <img
+                src={whoofIcon}
+                alt="HAVN logo"
+                className="h-6 w-6"
+              />
+              <span>HAVN</span>
+            </a>
 
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-10">
+              {navLinks
+                .filter((link) => !link.isButton)
+                .map((link) => (
+                  <button
+                    key={link.href}
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-[13px] font-semibold tracking-[0.18em] uppercase text-white/80 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:flex">
+              <Button
+                onClick={() => scrollToSection("#preorder")}
+                className="rounded-full bg-white text-black hover:bg-white/90 text-[11px] font-semibold tracking-[0.16em] px-6 py-2 uppercase"
+              >
+                Pre-order now
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-6 mt-8">
-                <a
-                  href="#home"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("#home");
-                  }}
-                  className="flex items-center gap-2 font-bold text-xl"
+            </div>
+
+            {/* Mobile Menu Trigger */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild className="md:hidden">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:bg-white/10"
                 >
-                  <img
-                    src={whoofIcon}
-                    alt="Whoof logo"
-                    className="h-6 w-6 text-primary"
-                  />
-                  <span>HAVN</span>
-                </a>
-                <div className="flex flex-col gap-4">
-                  {navLinks.map((link) =>
-                    link.isButton ? (
-                      <Button
-                        key={link.href}
-                        onClick={() => scrollToSection(link.href)}
-                        className="bg-muted-foreground text-white hover:bg-muted-foreground/90 w-full"
-                      >
-                        {link.label}
-                      </Button>
-                    ) : (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          scrollToSection(link.href);
-                        }}
-                        className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary py-2"
-                      >
-                        {link.label}
-                      </a>
-                    )
-                  )}
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                className="w-[300px] sm:w-[360px] bg-black text-white border-l border-white/10"
+              >
+                <div className="mt-6 flex flex-col gap-6">
+                  {/* Mobile logo */}
+                  <button
+                    onClick={() => scrollToSection("#home")}
+                    className="flex items-center gap-2 font-semibold text-lg tracking-tight"
+                  >
+                    <img
+                      src={whoofIcon}
+                      alt="HAVN logo"
+                      className="h-6 w-6"
+                    />
+                    <span>HAVN</span>
+                  </button>
+
+                  {/* Mobile links */}
+                  <div className="flex flex-col gap-4">
+                    {navLinks
+                      .filter((link) => !link.isButton)
+                      .map((link) => (
+                        <button
+                          key={link.href}
+                          onClick={() => scrollToSection(link.href)}
+                          className="text-sm font-semibold tracking-[0.16em] uppercase text-white/80 hover:text-white text-left"
+                        >
+                          {link.label}
+                        </button>
+                      ))}
+                  </div>
+
+                  {/* Mobile CTA */}
+                  <div className="pt-4">
+                    <Button
+                      onClick={() => scrollToSection("#preorder")}
+                      className="w-full rounded-full bg-white text-black hover:bg-white/90 text-[11px] font-semibold tracking-[0.16em] uppercase py-3"
+                    >
+                      Pre-order now
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 

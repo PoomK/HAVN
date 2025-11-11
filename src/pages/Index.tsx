@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -26,6 +26,7 @@ import heroPet from "@/assets/dog-hero-sec.png";
 import whoofAppDesign from "@/assets/whoof-app-design.png";
 import whoofIcon from "@/assets/dog-icon.svg";
 import havnCollar from "@/assets/havn-collar.png";
+import heroBg from "@/assets/hero-sec-bg.png";
 
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
@@ -44,6 +45,22 @@ const Index = () => {
       maximumFractionDigits: curr === "THB" ? 0 : 2,
     }).format(amount);
   }
+
+  useEffect(() => {
+    const overlay = document.getElementById("fadeOverlay");
+  
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const fadeStart = 100;
+      const fadeEnd = 500;
+      const opacity = Math.min(Math.max((scrollY - fadeStart) / (fadeEnd - fadeStart), 0), 1) * 0.9;
+  
+      if (overlay) overlay.style.opacity = opacity.toString();
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);  
 
   async function handlePreorderSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -87,7 +104,7 @@ const Index = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section
+      {/*<section
         id="home"
         className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background"
       >
@@ -151,6 +168,37 @@ const Index = () => {
                 className="relative rounded-2xl shadow-2xl w-half-full mx-auto"
               />
             </div>
+          </div>
+        </div>
+      </section>*/}
+
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-start overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div
+          id="fadeOverlay"
+          className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 opacity-0 transition-opacity duration-300 pointer-events-none"
+        />
+
+        <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-16">
+          <div className="max-w-2xl space-y-6">
+            <h1
+              className="font-sans text-[clamp(2.8rem,5vw,4.5rem)] font-semibold text-white leading-[1.05] tracking-tight"
+            >
+              Peace of mind,<br />
+              <span className="text-white/90">redefined for pets.</span>
+            </h1>
+            <p className="mt-4 text-base md:text-lg lg:text-xl text-white/80 max-w-xl font-normal tracking-tight leading-snug">
+              A sleek, AI-powered collar that monitors your pet’s health, activity, and stress levels — giving you calm, continuous insight every day.
+            </p>
           </div>
         </div>
       </section>
