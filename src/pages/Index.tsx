@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -26,6 +26,7 @@ import heroPet from "@/assets/dog-hero-sec.png";
 import whoofAppDesign from "@/assets/whoof-app-design.png";
 import whoofIcon from "@/assets/dog-icon.svg";
 import havnCollar from "@/assets/havn-collar.png";
+import dogRunning from "@/assets/dog-running-garden.png";
 import heroBg from "@/assets/hero-sec-bg.png";
 
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
@@ -131,6 +132,53 @@ const Index = () => {
               A sleek, AI-powered collar that monitors your pet’s health, activity, and stress levels — giving you calm, continuous insight every day.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Problem + Value Section */}
+      <section className="py-20 md:py-24 bg-background">
+        <div id="problem" className="container mx-auto px-4">
+          {/* Top: Problem intro */}
+          <div className="max-w-4xl mx-auto space-y-6">
+            <h2
+              className="
+                font-sans font-semibold tracking-tight
+                text-[clamp(2.8rem,4vw,3.6rem)]
+                leading-[1.05]
+                text-foreground
+              "
+            >
+              Understand your pet’s health,<br />
+              improve their wellbeing.
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
+              Daily monitoring helps detect early signs of stress, fatigue, or illness — 
+              giving owners data-backed confidence and helping pets live healthier, happier lives.*
+            </p>
+            <div className="mt-6 rounded-3xl overflow-hidden shadow-lg">
+              <img
+                src={dogRunning}
+                alt="Dog wearing HAVN collar showing pet health tracking"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Anchor so #value still scrolls here */}
+          <div id="value" className="h-0" />
+
+          {/* Mid: Section label */}
+          <div className="max-w-3xl mx-auto mt-12 mb-6 text-left">
+            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
+              What pet owners really want
+            </h3>
+            <p className="mt-2 text-sm md:text-base text-muted-foreground">
+              These are the jobs HAVN helps owners do every day – the reasons they buy and keep using the product.
+            </p>
+          </div>
+
+          {/* Cards: horizontally scrollable row with buttons */}
+          {/* <ProblemValueCarousel /> */}
         </div>
       </section>
 
