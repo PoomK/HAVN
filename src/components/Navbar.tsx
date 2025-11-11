@@ -10,6 +10,7 @@ const Navbar = () => {
 
   const navLinks = [
     { label: "Why Havn", href: "#problem" },
+    { label: "product", href: "#product" },
     { label: "how it works", href: "#solution" },
     { label: "Pricing", href: "#pricing" },
     { label: "Pre-order now", href: "#preorder", isButton: true },

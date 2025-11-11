@@ -37,6 +37,8 @@ import cardDogWalk from "@/assets/card-dog-walk.png";
 import cardDogPeace from "@/assets/card-dog-peace.png";
 import cardDogHealth from "@/assets/card-dog-health.png";
 
+import solHavnProd from "@/assets/HAVN-Product-guide.png";
+
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
 const Index = () => {
@@ -288,7 +290,7 @@ const Index = () => {
       >
         <div
           id="fadeOverlay"
-          className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 opacity-0 transition-opacity duration-300 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-transparent to-black/100 opacity-0 transition-opacity duration-300 pointer-events-none"
         />
 
         <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-16">
@@ -358,6 +360,33 @@ const Index = () => {
 
           {/* Cards: horizontally scrollable row with buttons */}
           {/* <ProblemValueCarousel /> */}
+        </div>
+      </section>
+
+      {/* PRODUCT */}
+      <section className="py-20 md:py-32 bg-black text-white relative overflow-hidden">
+        <div id="product" className="container mx-auto px-6 text-center">
+          {/* Title */}
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Designed for comfort. <span className="text-white/60">Built for care.</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-10">
+            HAVN combines sleek design with medical-grade technology to keep your dog safe, healthy, and connected.
+          </p>
+
+          {/* Collar Image */}
+          <div className="flex justify-center">
+            <img
+              src={solHavnProd}
+              alt="HAVN collar feature diagram"
+              className="w-full max-w-5xl rounded-2xl shadow-2xl"
+            />
+          </div>
+
+          {/* Tagline */}
+          <p className="text-sm text-white/50 mt-6">
+            *Engineered for every adventure — light, durable, and ready for life with your dog.*
+          </p>
         </div>
       </section>
 
