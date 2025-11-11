@@ -9,9 +9,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "Why Havn", href: "#problem" },
     { label: "product", href: "#product" },
-    { label: "how it works", href: "#solution" },
+    { label: "HAVN app ", href: "#solution" },
+    { label: "Why Havn", href: "#problem" },
     { label: "Pricing", href: "#pricing" },
     { label: "Pre-order now", href: "#preorder", isButton: true },
   ];

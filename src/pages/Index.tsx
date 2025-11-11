@@ -312,61 +312,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problem + Value Section */}
-      <section className="py-20 md:py-24 bg-background">
-        <div id="problem" className="container mx-auto px-4">
-          {/* Top: Problem intro */}
-          <div className="max-w-4xl mx-auto space-y-6">
-            <h2
-              className="
-                font-sans font-semibold tracking-tight
-                text-[clamp(2.8rem,4vw,3.6rem)]
-                leading-[1.05]
-                text-foreground
-              "
-            >
-              Understand your pet’s health,<br />
-              improve their wellbeing.
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
-              Daily monitoring helps detect early signs of stress, fatigue, or illness — 
-              giving owners data-backed confidence and helping pets live healthier, happier lives.
-            </p>
-            <div className="mt-6 rounded-3xl overflow-hidden shadow-lg">
-              <img
-                src={dogRunning}
-                alt="Dog wearing HAVN collar showing pet health tracking"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Anchor so #value still scrolls here */}
-          <div id="value" className="h-0" />
-
-          {/* Mid: Section label */}
-          <div className="max-w-4xl mx-auto space-y-6 pt-16">
-            <h2
-              className="
-                font-sans font-semibold tracking-tight
-                text-[clamp(2.8rem,4vw,3.6rem)]
-                leading-[1.05]
-                text-foreground
-              "
-            >
-              What pet owners really want
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
-              Transform everyday care into proactive health insights — giving your pet a voice through data.
-            </p>
-            <ValueCarousel />
-          </div>
-
-          {/* Cards: horizontally scrollable row with buttons */}
-          {/* <ProblemValueCarousel /> */}
-        </div>
-      </section>
-
       {/* PRODUCT */}
       <section className="py-20 md:py-32 bg-black text-white relative overflow-hidden">
         <div id="product" className="container mx-auto px-6 text-center">
@@ -480,6 +425,61 @@ const Index = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Problem + Value Section */}
+      <section className="py-20 md:py-24 bg-background">
+        <div id="problem" className="container mx-auto px-4">
+          {/* Top: Problem intro */}
+          <div className="max-w-4xl mx-auto space-y-6">
+            <h2
+              className="
+                font-sans font-semibold tracking-tight
+                text-[clamp(2.8rem,4vw,3.6rem)]
+                leading-[1.05]
+                text-foreground
+              "
+            >
+              Understand your pet’s health,<br />
+              improve their wellbeing.
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
+              Daily monitoring helps detect early signs of stress, fatigue, or illness — 
+              giving owners data-backed confidence and helping pets live healthier, happier lives.
+            </p>
+            <div className="mt-6 rounded-3xl overflow-hidden shadow-lg">
+              <img
+                src={dogRunning}
+                alt="Dog wearing HAVN collar showing pet health tracking"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Anchor so #value still scrolls here */}
+          <div id="value" className="h-0" />
+
+          {/* Mid: Section label */}
+          <div className="max-w-4xl mx-auto space-y-6 pt-16">
+            <h2
+              className="
+                font-sans font-semibold tracking-tight
+                text-[clamp(2.8rem,4vw,3.6rem)]
+                leading-[1.05]
+                text-foreground
+              "
+            >
+              What value does HAVN provide?
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
+              Transform everyday care into proactive health insights — giving your pet a voice through data.
+            </p>
+            <ValueCarousel />
+          </div>
+
+          {/* Cards: horizontally scrollable row with buttons */}
+          {/* <ProblemValueCarousel /> */}
         </div>
       </section>
 
