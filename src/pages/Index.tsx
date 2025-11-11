@@ -40,6 +40,9 @@ import cardDogHealth from "@/assets/card-dog-health.png";
 import solHavnProd from "@/assets/HAVN-Product-guide.png";
 import havnAppScreen from "@/assets/Havn-app.png";
 
+import havnCollarImg from "@/assets/HAVN-Product-des.png";
+import havnAppImg from "@/assets/Havn-app.png";
+
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsgIGZ0RKKgG3lj_xWvo35S_qfuaJSI6gg6rIPw2C_LHFysal3lEWjKU3n7WTXQN4l/exec";
 
 const Index = () => {
@@ -220,7 +223,7 @@ const Index = () => {
             className="
               flex gap-4 md:gap-6 pb-6 pt-2
               overflow-x-auto scrollbar-none
-              pr-[20vw] -mr-[20vw]
+              pr-[27vw] -mr-[27vw]
             "
           >
             {cards.map((card) => (
@@ -481,24 +484,31 @@ const Index = () => {
       </section>
 
       {/* Business Model */}
-      <section className="py-20 md:py-20 bg-black">
+      <section className="py-20 md:py-24 bg-black">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6 mb-10">
-            <h2 id="pricing" className="text-4xl md:text-5xl font-bold">
-              Our Business Model
+          {/* Heading */}
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
+            <h2
+              id="pricing"
+              className="text-3xl md:text-4xl font-semibold tracking-tight text-white"
+            >
+              The business model
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Sustainable growth through hardware sales and subscription services.
+            <p className="text-sm md:text-base text-white/70">
+              Simple hardware + subscription model that keeps ownership costs clear,
+              while unlocking continuous, AI-powered pet health insights.
             </p>
 
-            {/* Currency Toggle UNDER the subtitle */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center rounded-full border bg-muted p-1">
+            {/* Currency Toggle */}
+            <div className="flex justify-center pt-2">
+              <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 p-1">
                 <button
                   type="button"
                   onClick={() => setCurrency("GBP")}
-                  className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
-                    currency === "GBP" ? "bg-background shadow font-medium" : "text-muted-foreground"
+                  className={`px-3 py-1.5 text-xs md:text-sm rounded-full transition-colors ${
+                    currency === "GBP"
+                      ? "bg-white text-black shadow-sm"
+                      : "text-white/70"
                   }`}
                   aria-pressed={currency === "GBP"}
                 >
@@ -507,8 +517,10 @@ const Index = () => {
                 <button
                   type="button"
                   onClick={() => setCurrency("THB")}
-                  className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
-                    currency === "THB" ? "bg-background shadow font-medium" : "text-muted-foreground"
+                  className={`px-3 py-1.5 text-xs md:text-sm rounded-full transition-colors ${
+                    currency === "THB"
+                      ? "bg-white text-black shadow-sm"
+                      : "text-white/70"
                   }`}
                   aria-pressed={currency === "THB"}
                 >
@@ -518,156 +530,167 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Hardware Card */}
-            <Card className="p-8 space-y-6 border-2">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Hardware</h3>
-                <div className="text-4xl font-bold text-primary">
-                  {formatPrice(PRICES[currency].device, currency)}
-                </div>
-                <p className="text-muted-foreground">One-time device purchase</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Lightweight collar tag with integrated sensors</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Water-resistant, everyday wear</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Up to 30-day battery life</span>
-                </li>
-              </ul>
-            </Card>
-
-            {/* Subscription Card */}
-            <Card className="p-8 space-y-6 border-2">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Subscription Plan</h3>
-                <div className="text-4xl font-bold text-primary">
-                  {formatPrice(PRICES[currency].sub, currency)}
-                  <span className="text-lg text-muted-foreground">/month</span>
-                </div>
-                <p className="text-muted-foreground">Full features & continuous insights</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Personalised AI health insights</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Full history, trends & alerts</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Vet-ready health reports</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Priority support</span>
-                </li>
-              </ul>
-            </Card>
-
-            {/* Enterprise Card (Future) */}
-            <Card className="p-8 space-y-6 border-2 relative">
-              <div className="absolute top-0 right-0 bg-muted text-muted-foreground px-3 py-1 text-xs font-semibold">
-                FUTURE
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Enterprise</h3>
-                <div className="text-4xl font-bold text-primary">Custom</div>
-                <p className="text-muted-foreground">For clinics, shelters & insurers</p>
-              </div>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">Bulk device pricing & fleet management</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">API access & data export</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">White-label options</span>
-                </li>
-              </ul>
-              <p className="text-xs text-muted-foreground">
-                *Roadmap: expand to B2B after consumer launch and validation.*
-              </p>
-            </Card>
-          </div>
-
-          {/* Strategy / Revenue narrative */}
-          <div className="mt-16 max-w-4xl mx-auto">
-            <Card className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5">
-              <div className="flex flex-col gap-6">
-                <div className="flex items-start gap-6">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Users className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">Revenue & Strategy</h3>
-                    <p className="text-muted-foreground">
-                      We start B2C with a simple purchase-and-subscribe model: affordable hardware and a
-                      monthly plan for continuous, personalised insights. This creates predictable,
-                      recurring revenue and keeps ownership costs transparent for pet parents.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Now vs Next */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border bg-background p-4">
-                    <h4 className="font-semibold mb-1">Now: B2C Focus</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Validate product-market fit with pet owners, grow subscription base, and refine AI
-                      with real-world datasets.
-                    </p>
-                  </div>
-                  <div className="rounded-lg border bg-background p-4">
-                    <h4 className="font-semibold mb-1">Next: B2B Expansion</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Partner with clinics, shelters, and insurers for bulk deployments, data-driven care
-                      pathways, and co-branded wellness programs.
-                    </p>
-                  </div>
+          {/* Cards */}
+          <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+            {/* Device card */}
+            <div className="flex flex-col overflow-hidden rounded-[32px] bg-gradient-to-b from-neutral-50 via-neutral-50 to-neutral-100 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+              {/* Top copy */}
+              <div className="px-8 pt-8 pb-4">
+                <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-emerald-500">
+                  Device
+                </p>
+                <h3 className="mt-2 text-xl md:text-2xl font-semibold text-neutral-900">
+                  HAVN Collar &amp; Sensor
+                </h3>
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="text-3xl md:text-4xl font-bold text-neutral-900">
+                    {formatPrice(PRICES[currency].device, currency)}
+                  </span>
+                  <span className="text-xs md:text-sm text-neutral-500">one-time</span>
                 </div>
               </div>
-            </Card>
+
+              {/* Shared image area – same dimensions as subscription card */}
+              <div className="px-8">
+                <div className="relative h-64 w-full overflow-hidden rounded-3xl bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-100 flex items-end justify-center">
+                  <img
+                    src={havnCollarImg}
+                    alt="HAVN collar device"
+                    className="h-[120%] max-w-full object-contain translate-y-4"
+                  />
+                </div>
+              </div>
+
+              {/* Features */}
+              <div className="px-8 pb-8 pt-6">
+                <ul className="space-y-2 text-sm text-neutral-700">
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>
+                      Lightweight collar tag with integrated medical-grade sensors
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>Water-resistant and built for everyday wear</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>Small and compact, fits dogs of all sizes</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>Up to 2-weeks battery life on a single charge</span>
+                  </li>
+                </ul>
+
+                <button
+                  type="button"
+                  onClick={() => setPreorderOpen(true)}
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-neutral-900 px-4 py-3 text-sm font-semibold text-white hover:bg-neutral-800 transition-colors"
+                >
+                  Start with the device
+                </button>
+              </div>
+            </div>
+
+            {/* Subscription card */}
+            <div className="flex flex-col overflow-hidden rounded-[32px] bg-gradient-to-b from-neutral-50 via-neutral-50 to-neutral-100 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+              {/* Top copy */}
+              <div className="px-8 pt-8 pb-4">
+                <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-emerald-500">
+                  Membership
+                </p>
+                <h3 className="mt-2 text-xl md:text-2xl font-semibold text-neutral-900">
+                  HAVN App Subscription
+                </h3>
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="text-3xl md:text-4xl font-bold text-neutral-900">
+                    {formatPrice(PRICES[currency].sub, currency)}
+                  </span>
+                  <span className="text-xs md:text-sm text-neutral-500">/ month (3 months free trial)</span>
+                </div>
+              </div>
+
+              {/* Shared image area – same as device; phone shows only top half */}
+              <div className="px-8">
+                <div className="relative h-64 w-full overflow-hidden rounded-3xl bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-100 flex items-end justify-center">
+                  <img
+                    src={havnAppImg}
+                    alt="HAVN app on phone"
+                    className="h-[150%] max-w-[260px] object-contain translate-y-40"
+                  />
+                </div>
+              </div>
+
+              {/* Features */}
+              <div className="px-8 pb-8 pt-6">
+                <ul className="space-y-2 text-sm text-neutral-700">
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>
+                      Personalised AI health insights and daily guidance
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>
+                      Full history, trends, and proactive alerts for early detection
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>Vet-ready reports you can share in seconds</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="mt-0.5 h-4 w-4 text-emerald-500" />
+                    <span>Priority support as we evolve the platform</span>
+                  </li>
+                </ul>
+
+                <button
+                  type="button"
+                  onClick={() => setPreorderOpen(true)}
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-neutral-900 px-4 py-3 text-sm font-semibold text-white hover:bg-neutral-800 transition-colors"
+                >
+                  Start your membership
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
+      <section className="py-20 md:py-24 bg-background">
         <div id="preorder" className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl md:5xl font-bold">
-              Give Your Pet the Care They Deserve
+            <h2
+              className="
+                font-sans font-semibold tracking-tight
+                text-[clamp(2.2rem,3.3vw,2.8rem)]
+                leading-[1.05]
+                text-foreground
+              "
+            >
+              Give your pet the care they deserve
             </h2>
-            <p className="text-xl text-primary-foreground/90">
-              Join thousands of pet owners who trust us with their pet's health
-              and wellbeing.
+
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
+              Join early adopters who want clearer answers about their pet’s health,
+              not just guesswork.
             </p>
 
             <div className="flex flex-col sm:flex-row sm:justify-center gap-3 sm:gap-4 w-full max-w-md mx-auto">
               <Button
                 size="lg"
-                variant="secondary"
-                className="group w-full sm:w-auto"
+                variant="default"
+                className="group w-full sm:w-auto rounded-full px-8"
                 onClick={() => setPreorderOpen(true)}
               >
-                Pre-Order Now
+                Pre-order now
                 <ArrowRight className="h-5 w-5 ml-1 sm:ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-
             </div>
           </div>
         </div>
@@ -687,8 +710,10 @@ const Index = () => {
       >
         <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-md p-6 sm:p-6">
           <DialogHeader>
-            <DialogTitle className="text-xl">Join the Pre-Order List</DialogTitle>
-            <DialogDescription className="text-sm">
+            <DialogTitle className="text-lg md:text-xl font-semibold">
+              Join the pre-order list
+            </DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground">
               Pop in your email and we’ll notify you as soon as pre-orders open.
             </DialogDescription>
           </DialogHeader>
@@ -709,7 +734,7 @@ const Index = () => {
             </div>
 
             {submitted === "ok" && (
-              <p className="text-sm text-green-600">Got it! You’re on the list 🐾</p>
+              <p className="text-sm text-emerald-600">Got it! You’re on the list 🐾</p>
             )}
             {submitted === "error" && (
               <p className="text-sm text-red-600">
@@ -730,7 +755,11 @@ const Index = () => {
               >
                 Cancel
               </Button>
-              <Button type="submit" disabled={submitting} className="w-full sm:w-auto">
+              <Button
+                type="submit"
+                disabled={submitting}
+                className="w-full sm:w-auto"
+              >
                 {submitting ? "Submitting..." : "Notify me"}
               </Button>
             </DialogFooter>
@@ -739,14 +768,16 @@ const Index = () => {
       </Dialog>
 
       {/* Footer */}
-      <footer className="py-12 border-t">
+      <footer className="py-10 md:py-12 bg-black text-white">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2">
-              <img src={whoofIcon} alt="Whoof logo" className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">HAVN</span>
+              <img src={whoofIcon} alt="HAVN logo" className="h-6 w-6" />
+              <span className="text-lg md:text-xl font-semibold tracking-tight">
+                HAVN
+              </span>
             </div>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-xs md:text-sm text-white/60">
               © 2025 HAVN. Built for New Venture coursework. By Penterprise.
             </p>
           </div>
