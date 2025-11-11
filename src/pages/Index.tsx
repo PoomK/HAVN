@@ -481,7 +481,7 @@ const Index = () => {
       </section>
 
       {/* Business Model */}
-      <section className="py-20 md:py-20">
+      <section className="py-20 md:py-20 bg-black">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-10">
             <h2 id="pricing" className="text-4xl md:text-5xl font-bold">
