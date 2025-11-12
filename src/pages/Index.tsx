@@ -352,7 +352,7 @@ const Index = () => {
               <img
                 src={havnAppScreen} // <-- use your app image import here
                 alt="HAVN app showing pet health insights"
-                className="w-[75%] max-w-xs md:max-w-sm rounded-[28px]"
+                className="w-[80%] max-w-xs md:max-w-sm rounded-[28px]"
               />
             </div>
 
