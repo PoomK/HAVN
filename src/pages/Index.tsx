@@ -121,7 +121,7 @@ const Index = () => {
   const ValueCarousel = () => {
     const trackRef = useRef<HTMLDivElement | null>(null);
     const [page, setPage] = useState(0);   // 0, 1, 2
-    const totalPages = 3;
+    const totalPages = 4;
   
     const cards = [
       {
