@@ -23,6 +23,12 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 import heroPet from "@/assets/dog-hero-sec.png";
 import whoofAppDesign from "@/assets/whoof-app-design.png";
@@ -712,33 +718,52 @@ const Index = () => {
           }
         }}
       >
-        <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-md p-6 sm:p-6">
-          <DialogHeader>
-            <DialogTitle className="text-lg md:text-xl font-semibold">
+        <DialogContent
+          className="
+            w-[calc(100vw-2rem)]
+            sm:max-w-sm
+            rounded-3xl
+            border
+            border-border
+            bg-background/95
+            p-6 sm:p-7
+            shadow-xl
+          "
+        >
+          <DialogHeader className="space-y-2">
+            <DialogTitle className="text-lg md:text-xl font-semibold tracking-tight text-foreground">
               Join the pre-order list
             </DialogTitle>
-            <DialogDescription className="text-sm text-muted-foreground">
+            <DialogDescription className="text-sm md:text-[15px] text-muted-foreground">
               Pop in your email and we’ll notify you as soon as pre-orders open.
             </DialogDescription>
           </DialogHeader>
 
-          <form onSubmit={handlePreorderSubmit} className="space-y-4">
+          <form onSubmit={handlePreorderSubmit} className="mt-4 space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="preorder-email">Email address</Label>
+              <Label
+                htmlFor="preorder-email"
+                className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground"
+              >
+                Email address
+              </Label>
               <Input
                 id="preorder-email"
                 type="email"
                 inputMode="email"
                 autoComplete="email"
-                placeholder="you@petlover.com"
+                placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="h-10 rounded-full border border-border bg-background text-sm"
               />
             </div>
 
             {submitted === "ok" && (
-              <p className="text-sm text-emerald-600">Got it! You’re on the list 🐾</p>
+              <p className="text-sm text-emerald-600">
+                Got it! You’re on the list 🐾
+              </p>
             )}
             {submitted === "error" && (
               <p className="text-sm text-red-600">
@@ -746,15 +771,15 @@ const Index = () => {
               </p>
             )}
 
-            <div className="text-xs text-muted-foreground">
+            <div className="text-[11px] md:text-xs text-muted-foreground">
               We’ll only use this to notify you about pre-orders.
             </div>
 
-            <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-2">
+            <DialogFooter className="mt-2 flex flex-col sm:flex-row gap-2 sm:gap-3">
               <Button
                 type="button"
                 variant="outline"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto rounded-full border-border text-sm"
                 onClick={() => setPreorderOpen(false)}
               >
                 Cancel
@@ -762,7 +787,13 @@ const Index = () => {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full sm:w-auto"
+                className="
+                  w-full sm:w-auto
+                  rounded-full
+                  bg-black text-white
+                  hover:bg-black/90
+                  text-sm font-medium
+                "
               >
                 {submitting ? "Submitting..." : "Notify me"}
               </Button>
@@ -771,16 +802,147 @@ const Index = () => {
         </DialogContent>
       </Dialog>
 
+      {/* FAQ Section */}
+      <section className="py-20 md:py-24 bg-black">
+        <div className="container mx-auto px-4">
+          {/* Heading */}
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
+            <h2
+              className="
+                font-sans font-semibold tracking-tight
+                text-[clamp(2.4rem,3.6vw,3rem)]
+                leading-[1.05]
+                text-white
+              "
+            >
+              Frequently asked questions
+            </h2>
+            <p className="text-base md:text-lg text-white text-muted-foreground">
+              Everything you might be wondering about HAVN — from how it works, to
+              what happens when something looks off.
+            </p>
+          </div>
+
+          {/* Accordion */}
+          <div className="max-w-3xl mx-auto text-white">
+            <Accordion type="single" collapsible className="space-y-2">
+              <AccordionItem value="faq-accuracy" className="border rounded-2xl px-4">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
+                  How accurate is the HAVN collar in measuring health metrics?
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                  HAVN uses medical-grade sensors similar to those in leading human wearables.
+                  Metrics like heart rate, HRV, temperature, and activity are sampled
+                  continuously, then filtered and calibrated so you get stable trends rather
+                  than noisy spikes. Our insights are built on veterinary research linking these
+                  signals to stress, fatigue, and early signs of illness.
+                  
+                  <br /><br />
+
+                  <a
+                    href="https://www.theengineer.co.uk/content/news/fur-friendly-wearable-tracks-health-of-pets"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary font-semibold underline underline-offset-4 hover:text-primary/80 transition-colors"
+                  >
+                    LINK TO RESEARCH →
+                  </a>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-anomaly" className="border rounded-2xl px-4">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
+                  What happens when HAVN detects something abnormal?
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                  If HAVN spots patterns outside your pet’s normal range, the app
+                  sends a clear alert explaining what changed and why it might matter.
+                  For persistent or serious anomalies, HAVN makes recommendations and contacts your vet, and exports a concise health report you can share ahead of the appointment.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-comfort" className="border rounded-2xl px-4">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
+                  Is the device safe and comfortable for everyday wear?
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                  Yes. The collar is lightweight, breathable, and made from
+                  pet-friendly materials designed for 24/7 wear. It’s low-profile
+                  enough to sit alongside your existing collar, and the sensor module
+                  is rounded so it doesn’t dig into your pet’s neck when they lie
+                  down.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-subscription" className="border rounded-2xl px-4">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
+                  Do I need a subscription? What does it unlock?
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                  The one-time device purchase gives you the physical collar and
+                  core tracking. The subscription unlocks what makes HAVN special:
+                  advanced AI insights, full history and trends, proactive health
+                  alerts, and vet-ready reports you can share in seconds. It’s built
+                  to give ongoing value, not just raw numbers.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-difference" className="border rounded-2xl px-4">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
+                  What makes HAVN different from GPS trackers or basic activity collars?
+                </AccordionTrigger>
+                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                  Most trackers focus on location or step counts. HAVN is built
+                  around health: medical-grade sensors, AI-driven anomaly detection,
+                  and early-warning alerts that help you spot issues before they
+                  become emergencies. It’s like giving your pet a voice about how
+                  they’re really feeling. Furthermore, HAVN's design prioritizes comfort and fits all dogs.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-10 md:py-12 bg-black text-white">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-2">
-              <img src={havnLogo} alt="HAVN logo" className="h-6 w-6" />
-              <span className="text-lg md:text-xl font-semibold tracking-tight">
-                HAVN
-              </span>
+            
+            {/* Logo + Instagram */}
+            <div className="flex items-center justify-center gap-4">
+              {/* HAVN Logo */}
+              <div className="flex items-center gap-2">
+                <img src={havnLogo} alt="HAVN logo" className="h-6 w-6" />
+                <span className="text-lg md:text-xl font-semibold tracking-tight">
+                  HAVN
+                </span>
+              </div>
+
+              {/* Instagram icon */}
+              <a
+                href="https://www.instagram.com/havn.dg/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Visit our Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-instagram"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg>
+              </a>
             </div>
+
+            {/* Copyright */}
             <p className="text-xs md:text-sm text-white/60">
               © 2025 HAVN. Built for New Venture coursework. By Penterprise.
             </p>
