@@ -882,7 +882,7 @@ const Index = () => {
                 <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
                   How accurate is the HAVN collar in measuring health metrics?
                 </AccordionTrigger>
-                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                <AccordionContent className="pb-4 text-sm md:text-base text-gray-300">
                   HAVN uses medical-grade sensors similar to those in leading human wearables.
                   Metrics like heart rate, HRV, temperature, and activity are sampled
                   continuously, then filtered and calibrated so you get stable trends rather
@@ -905,7 +905,7 @@ const Index = () => {
                 <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
                   What happens when HAVN detects something abnormal?
                 </AccordionTrigger>
-                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                <AccordionContent className="pb-4 text-sm md:text-base text-gray-300">
                   If HAVN spots patterns outside your pet’s normal range, the app
                   sends a clear alert explaining what changed and why it might matter.
                   For persistent or serious anomalies, HAVN makes recommendations and contacts your vet, and exports a concise health report you can share ahead of the appointment.
@@ -915,7 +915,7 @@ const Index = () => {
                 <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
                   Is the device safe and comfortable for everyday wear?
                 </AccordionTrigger>
-                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                <AccordionContent className="pb-4 text-sm md:text-base text-gray-300">
                   Yes. The collar is lightweight, breathable, and made from
                   pet-friendly materials designed for 24/7 wear. It’s low-profile
                   enough to sit alongside your existing collar, and the sensor module
@@ -927,7 +927,7 @@ const Index = () => {
                 <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
                   Do I need a subscription? What does it unlock?
                 </AccordionTrigger>
-                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                <AccordionContent className="pb-4 text-sm md:text-base text-gray-300">
                   The one-time device purchase gives you the physical collar and
                   core tracking. The subscription unlocks what makes HAVN special:
                   advanced AI insights, full history and trends, proactive health
@@ -939,7 +939,7 @@ const Index = () => {
                 <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4">
                   What makes HAVN different from GPS trackers or basic activity collars?
                 </AccordionTrigger>
-                <AccordionContent className="pb-4 text-sm md:text-base text-white">
+                <AccordionContent className="pb-4 text-sm md:text-base text-gray-300">
                   Most trackers focus on location or step counts. HAVN is built
                   around health: medical-grade sensors, AI-driven anomaly detection,
                   and early-warning alerts that help you spot issues before they
