@@ -45,7 +45,9 @@ import cardDogWalk from "@/assets/card-dog-walk.png";
 import cardDogPeace from "@/assets/card-dog-peace.png";
 import cardDogHealth from "@/assets/card-dog-health.png";
 
-import solHavnProd from "@/assets/HAVN-Product-guide.png";
+import solHavnProdBlack from "@/assets/HAVN-Product-guide-black.png";
+import solHavnProdGold from "@/assets/HAVN-Product-guide-gold.png";
+import solHavnProdWhite from "@/assets/HAVN-Product-guide-white.png";
 import havnAppScreen from "@/assets/Havn-app.png";
 
 import havnCollarImg from "@/assets/HAVN-Product-des.png";
@@ -286,6 +288,20 @@ const Index = () => {
       </div>
     );
   };
+
+  const [bandColor, setBandColor] = useState<"black" | "gold" | "white">("black");
+
+  const collarImages: Record<typeof bandColor, string> = {
+    black: solHavnProdBlack,
+    gold: solHavnProdGold,
+    white: solHavnProdWhite,
+  };
+
+  const colorOptions: { id: typeof bandColor; label: string; className: string }[] = [
+    { id: "black", label: "Onyx Black", className: "bg-neutral-900" },
+    { id: "gold", label: "Champagne Gold", className: "bg-[#E3C98C]" },
+    { id: "white", label: "Polar White", className: "bg-slate-200" },
+  ];
   
   return (
     <div className="min-h-screen">
@@ -326,24 +342,60 @@ const Index = () => {
       <section className="py-20 md:py-32 bg-black text-white relative overflow-hidden">
         <div id="product" className="container mx-auto px-6 text-center">
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Designed for comfort. <span className="text-white/60">Built for care.</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6">
+            Designed for comfort.{" "}
+            <span className="text-white/60">Built for care.</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-2">
-            HAVN combines sleek design with medical-grade technology to keep your dog safe, healthy, and connected.
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-6 md:mb-4">
+            HAVN combines sleek design with medical-grade technology to keep your dog
+            safe, healthy, and connected.
           </p>
 
           {/* Collar Image */}
           <div className="flex justify-center">
             <img
-              src={solHavnProd}
+              src={collarImages[bandColor]}
               alt="HAVN collar feature diagram"
-              className="w-full max-w-5xl rounded-2xl shadow-2xl"
+              className="w-full max-w-5xl rounded-2xl shadow-2xl transition-transform duration-300 ease-out"
             />
           </div>
 
+          {/* Colour selector */}
+          <div className="mb-6 md:mb-8 flex flex-col items-center gap-3">
+            <p className="text-xs md:text-sm uppercase tracking-[0.16em] text-white/50">
+              Select band colour
+            </p>
+            <div className="flex items-center gap-3">
+              {colorOptions.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => setBandColor(option.id)}
+                  className={`
+                    h-9 w-9 md:h-10 md:w-10 rounded-full border
+                    flex items-center justify-center
+                    transition-transform duration-200
+                    ${bandColor === option.id
+                      ? "border-white scale-110 shadow-[0_0_0_2px_rgba(255,255,255,0.3)]"
+                      : "border-white/30 hover:scale-105"}
+                  `}
+                  aria-label={option.label}
+                  aria-pressed={bandColor === option.id}
+                >
+                  <span
+                    className={`h-7 w-7 md:h-8 md:w-8 rounded-full ${option.className}`}
+                  />
+                </button>
+              ))}
+            </div>
+            {/* Active colour label */}
+            <p className="text-xs md:text-sm text-white/60">
+              {colorOptions.find((c) => c.id === bandColor)?.label}
+            </p>
+          </div>
+
           {/* Tagline */}
-          <p className="text-sm text-white/50 mt-0">
+          <p className="text-xs md:text-sm text-white/50 mt-4 md:mt-6">
             *Engineered for every adventure — light, durable, and ready for life with your dog.*
           </p>
         </div>
@@ -840,7 +892,7 @@ const Index = () => {
                   <br /><br />
 
                   <a
-                    href="https://www.theengineer.co.uk/content/news/fur-friendly-wearable-tracks-health-of-pets"
+                    href="https://advanced.onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adfm.201910288?download=true&campaigns=%5B%7B%22position%22%3A%22ereader-last-page%22%2C%22uri%22%3A%22uri%3A707b1a3c-73e6-4188-b21f-2b05b70307d8%22%7D%2C%7B%22position%22%3A%22ereader-first-page%22%2C%22uri%22%3A%22uri%3A7691ea89-90f5-4086-9241-486673caed61%22%7D%5D"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary font-semibold underline underline-offset-4 hover:text-primary/80 transition-colors"
