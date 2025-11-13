@@ -545,6 +545,58 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Customer Validation Section */}
+      <section className="pt-0 md:pb--10 md:pb-16 bg-background text-black">
+        <div className="container mx-auto px-6 pb-8">
+          
+          {/* Heading */}
+          <div className="max-w-4xl mx-auto space-y-6 pb-12">
+            <h2
+              className="
+                font-sans font-semibold tracking-tight
+                text-[clamp(2.8rem,4vw,3.6rem)]
+                leading-[1.05]
+                text-foreground
+              "
+            >
+              What pet owners told us
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
+            Early research with dog owners confirmed that HAVN is solving a real and widespread concern.
+            </p>
+          </div>
+
+          {/* Stats Row */}
+          <div className="grid md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
+            
+            {/* Stat 1 */}
+            <div className="space-y-3">
+              <p className="text-4xl font-bold tracking-tight">82%</p>
+              <p className="text-sm md:text-base text-black/70">
+                of dog owners worry they wouldn’t notice early signs of illness until it’s too late.
+              </p>
+            </div>
+
+            {/* Stat 2 */}
+            <div className="space-y-3">
+              <p className="text-4xl font-bold tracking-tight">61%</p>
+              <p className="text-sm md:text-base text-black/70">
+                said they’d feel more at ease if their dog’s vitals were monitored automatically.
+              </p>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="space-y-3">
+              <p className="text-3xl font-bold tracking-tight">Peace of mind</p>
+              <p className="text-sm md:text-base text-black/70">
+                number 1 reason owners would use HAVN.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Business Model */}
       <section className="py-20 md:py-24 bg-black">
         <div className="container mx-auto px-4">
