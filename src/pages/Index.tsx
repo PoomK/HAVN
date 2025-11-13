@@ -724,8 +724,8 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-24 bg-background">
-        <div id="preorder" className="container mx-auto px-4">
+      <section id="preorder" className="py-20 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2
               className="
