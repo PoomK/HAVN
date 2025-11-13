@@ -363,7 +363,7 @@ const Index = () => {
           {/* Colour selector */}
           <div className="mb-6 md:mb-8 flex flex-col items-center gap-3">
             <p className="text-xs md:text-sm uppercase tracking-[0.16em] text-white/50">
-              Select band colour
+              Select collar colour
             </p>
             <div className="flex items-center gap-3">
               {colorOptions.map((option) => (
