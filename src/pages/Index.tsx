@@ -550,7 +550,7 @@ const Index = () => {
         <div className="container mx-auto px-6 pb-8">
           
           {/* Heading */}
-          <div className="max-w-4xl mx-auto space-y-6 pb-12">
+          <div className="max-w-4xl mx-auto space-y-6 pb-8">
             <h2
               className="
                 font-sans font-semibold tracking-tight
@@ -570,7 +570,13 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
             
             {/* Stat 1 */}
-            <div className="space-y-3">
+            <div
+              className="
+                rounded-3xl border bg-muted/40 px-6 py-8
+                flex flex-col justify-between text-center md:text-left
+                shadow-sm hover:shadow-lg hover:-translate-y-1 transition
+              "
+            >
               <p className="text-4xl font-bold tracking-tight">82%</p>
               <p className="text-sm md:text-base text-black/70">
                 of dog owners worry they wouldn’t notice early signs of illness until it’s too late.
@@ -578,7 +584,13 @@ const Index = () => {
             </div>
 
             {/* Stat 2 */}
-            <div className="space-y-3">
+            <div
+              className="
+                rounded-3xl border bg-muted/40 px-6 py-8
+                flex flex-col justify-between text-center md:text-left
+                shadow-sm hover:shadow-lg hover:-translate-y-1 transition
+              "
+            >
               <p className="text-4xl font-bold tracking-tight">61%</p>
               <p className="text-sm md:text-base text-black/70">
                 said they’d feel more at ease if their dog’s vitals were monitored automatically.
@@ -586,7 +598,13 @@ const Index = () => {
             </div>
 
             {/* Stat 3 */}
-            <div className="space-y-3">
+            <div
+              className="
+                rounded-3xl border bg-muted/40 px-6 py-8
+                flex flex-col justify-between text-center md:text-left
+                shadow-sm hover:shadow-lg hover:-translate-y-1 transition
+              "
+            >
               <p className="text-3xl font-bold tracking-tight">Peace of mind</p>
               <p className="text-sm md:text-base text-black/70">
                 number 1 reason owners would use HAVN.
