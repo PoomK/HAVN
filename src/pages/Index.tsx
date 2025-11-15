@@ -463,7 +463,7 @@ const Index = () => {
                       Activity &amp; Recovery Tracking
                     </h3>
                     <p className="text-sm md:text-base text-muted-foreground">
-                      Understand your pet’s play, rest, and movement patterns to keep
+                      Understand your pet’s play, rest, movement, and sleep patterns to keep
                       their routine balanced and healthy.
                     </p>
                   </div>
