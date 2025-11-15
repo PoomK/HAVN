@@ -155,7 +155,7 @@ const Index = () => {
       },
       {
         tag: "Lifestyle Balance",
-        title: "Find the perfect balance of rest and activity",
+        title: "Find the perfect balance of rest, play, and activity",
         body:
           "Know when your pet needs more play, recovery, or relaxation — helping them stay active, happy, and healthy.",
         image: cardDogWalk,
