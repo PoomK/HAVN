@@ -479,7 +479,7 @@ const Index = () => {
                       AI-Powered Insights
                     </h3>
                     <p className="text-sm md:text-base text-muted-foreground">
-                      Adaptive models learn your pet’s normal patterns to spot
+                      Adaptive models learn your pet’s unique patterns to spot
                       anomalies, sending clear, personalised alerts and recommendations.
                     </p>
                   </div>
