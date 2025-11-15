@@ -155,16 +155,16 @@ const Index = () => {
       },
       {
         tag: "Lifestyle Balance",
-        title: "Find the perfect balance of rest, play, and activity",
+        title: "Find the perfect balance of rest, play, and activity. Guides owners toward healthier habits.",
         body:
           "Know when your pet needs more play, recovery, or relaxation — helping them stay active, happy, and healthy.",
         image: cardDogWalk,
       },
       {
         tag: "Peace of Mind",
-        title: "Relax — you’ll know if something’s wrong, even when you’re not there.",
+        title: "Relax — you’ll know if something’s wrong, even when you’re not there. HAVN keeps you connected.",
         body:
-          "Real-time alerts and continuous monitoring keep you reassured — even when you’re away from home.",
+          "Real-time alerts and continuous monitoring keep you reassured — even when you’re away from home. HAVN keeps you connected.",
         image: cardDogPeace,
       },
     ];    
