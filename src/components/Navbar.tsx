@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "Collar", href: "#product" },
+    { label: "HAVN Collar", href: "#product" },
     { label: "HAVN app ", href: "#solution" },
     { label: "Why Havn", href: "#problem" },
     { label: "Pricing", href: "#pricing" },
